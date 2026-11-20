@@ -1,36 +1,120 @@
-# Jogo da Amizade 🐻🐰
+<p align="center">
+  <img src="docs/banner.png" alt="Jogo da Amizade - minigame em HTML, CSS e JavaScript" width="100%">
+</p>
 
-Um divertido e criativo minigame desenvolvido inteiramente com **HTML5, Vanilla CSS e Vanilla JavaScript**, sem o uso de engine ou a tag `<canvas>`. O objetivo do jogo é controlar um simpático urso, usar o radar para encontrar coelhinhos tristes espalhados pelo mapa e dar um belo abraço neles para espalhar a felicidade!
+<h1 align="center">🐻🐰 Jogo da Amizade</h1>
 
-## 🎮 Como Jogar
+<p align="center">
+  Minigame feito só com <b>HTML5, CSS e JavaScript puro</b>, sem engine e sem <code>&lt;canvas&gt;</code>: controle
+  um urso, use o radar para achar os coelhinhos tristes espalhados pelo mapa e dê um abraço em cada um.
+</p>
 
-1. **Objetivo:** Encontrar e abraçar todos os coelhinhos tristes.
-2. **Movimentação:** Basta **clicar (no computador)** ou **tocar na tela (em dispositivos móveis)** em direção de onde você quer que o urso vá.
-3. **Radar:** Observe a bússola/radar no centro-inferior ou lateral da tela (dependendo do seu dispositivo). Ele vai indicar a **direção e a distância** dos coelhos mais próximos.
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Depend%C3%AAncias-nenhuma-1e8f3e?style=for-the-badge" alt="Sem dependências">
+</p>
 
-## 🛠 Técnicas e Tecnologias Diferenciadas Neste Projeto
+<p align="center">
+  <a href="#-sobre-o-projeto">Sobre</a> •
+  <a href="#-como-jogar">Como jogar</a> •
+  <a href="#-funcionalidades">Funcionalidades</a> •
+  <a href="#-telas">Telas</a> •
+  <a href="#-como-executar">Como executar</a> •
+  <a href="#-técnicas-usadas">Técnicas</a> •
+  <a href="#-estrutura-do-projeto">Estrutura</a>
+</p>
 
-Este projeto parece simples, mas envolve uma série de conhecimentos sólidos de programação front-end raiz:
+---
 
-* **Engine em DOM (Document Object Model):** Ao invés do tradicional `<canvas>`, os elementos do jogo foram construídos usando divs HTML sobrepostas e o estado do jogo e a engine calculam posições diretamente no CSS (`left`, `top`, `z-index`).
-* **Sistema de Animação com CSS Sprites:** A animação dos personagens andando e trocando de direção foi feita combinando propriedades de `background-position` a um arquivo de imagem condensado (Sprite), gerenciado via JavaScript e CSS Variables.
-* **Sistema de Radar (Física e Matemática):**
-  * Uso de trigonometria com a função `Math.atan2(y, x)` para calcular o arco e o ângulo entre o urso e os coelhos a fim de rodar a seta do radar na direção correta.
-  * Uso do **Teorema de Pitágoras** (fórmula da distância euclidiana via `Math.sqrt(Math.pow(delta X) + Math.pow(delta Y))`) para calcular quais coelhos estão mais perto (ordenando os mais próximos) e a proximidade do urso em relação aos obstáculos.
-* **Sistema de Colisões (Bounding Box Circular/Ponto):** Lógica inteligente que varre as "árvores", os limites do mapa e outros "atores" no ambiente, impedindo o jogador e os coelhinhos de ultrapassar as bordas e objetos, validando os passos antes da UI ser renderizada.
-* **Padrões Parecidos com POO no Modelo de Agentes:** Separação das responsabilidades do `player` e criação instanciada e procedural de dezenas de `trees` e `bunnies` através de Arrays, gerando um mapa com posições randômicas a cada jogatina utilizando Vanilla JS.
+## 📌 Sobre o projeto
 
-## 💻 Como Rodar Localmente
+Um minigame simples e fofo, desenvolvido como projeto de estudo de **Design Web e Lógica de Programação**. O mapa
+é gerado de forma aleatória a cada partida e todo o jogo roda com elementos HTML posicionados por JavaScript e
+animados com CSS.
 
-Por usar Vanilla JS sem frameworks de build ou bundlers nativos:
+## 🎮 Como jogar
 
-1. Clone o repositório:
+1. **Objetivo:** encontrar e abraçar todos os **45 coelhinhos tristes**.
+2. **Movimentação:** **clique** (no computador) ou **toque** (no celular) no ponto da tela para onde o urso deve ir.
+3. **Radar:** as setas ao redor do urso apontam para os **5 coelhos tristes mais próximos** e mostram a distância
+   de cada um em pixels.
+4. **Abraço:** encoste no coelho para abraçá-lo. Ele agradece e o contador no canto superior direito diminui.
+5. Quando não sobrar nenhum coelho triste, aparece a mensagem final com o botão para jogar de novo.
+
+## ✨ Funcionalidades
+
+| | Recurso | Descrição |
+|---|---|---|
+| 🗺️ | **Mapa aleatório** | Mapa de 4000 × 4000 px com 45 coelhos e 100 árvores em posições sorteadas a cada partida |
+| 🧭 | **Radar** | Setas com ângulo e distância até os 5 coelhos tristes mais próximos |
+| 🤗 | **Abraço animado** | Urso e coelho se abraçam e o coelho deixa uma mensagem de agradecimento |
+| 🐇 | **Coelhos que andam** | Parte dos coelhos passeia sozinha pelo mapa |
+| 🌲 | **Colisões** | Árvores, bordas do mapa e outros personagens bloqueiam a passagem |
+| 🔢 | **Contador** | Quantidade de coelhos tristes restantes |
+| 🎞️ | **Sprites animados** | Personagens andando nas quatro direções com sprites em CSS |
+| 📱 | **Responsivo** | Mapa e radar se ajustam ao tamanho da janela; funciona com toque |
+
+## 🖼️ Telas
+
+<table>
+  <tr>
+    <td align="center"><b>Início da partida</b><br><img src="docs/screenshots/inicio.png" alt="Início da partida"></td>
+    <td align="center"><b>Abraço no coelhinho</b><br><img src="docs/screenshots/abraco.png" alt="Abraço no coelhinho"></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><b>Celular</b><br><img src="docs/screenshots/mobile.png" alt="Versão para celular" width="260"></td>
+  </tr>
+</table>
+
+## 🚀 Como executar
+
+Não há build nem dependências:
+
 ```bash
 git clone https://github.com/kauaxp77/Jogo-Da-Amizade.git
+cd Jogo-Da-Amizade
 ```
-2. Abra o arquivo `index.html` em qualquer navegador.
-3. Jogue!
 
-## 🎨 Autor(es)
-Desenvolvido como projeto de estudo de Design Web e Lógica de Programação.
-* _Kaua_ (GitHub: [@kauaxp77](https://github.com/kauaxp77))
+Depois, abra o arquivo `index.html` em qualquer navegador e jogue!
+
+## 🧠 Técnicas usadas
+
+* **Engine em DOM:** em vez do `<canvas>`, os elementos do jogo são `div`s sobrepostas, e o JavaScript calcula as
+  posições direto no CSS (`left`, `top`, `z-index`).
+* **Animação com sprites em CSS:** a caminhada e a troca de direção dos personagens combinam `background-position`
+  com imagens de sprite embutidas no CSS, controladas pelo JavaScript.
+* **Radar com trigonometria:** `Math.atan2(y, x)` calcula o ângulo entre o urso e cada coelho para girar a seta na
+  direção certa.
+* **Distância euclidiana (Pitágoras):** `Math.sqrt(Math.pow(Δx, 2) + Math.pow(Δy, 2))` ordena os coelhos mais
+  próximos e mede a proximidade de obstáculos.
+* **Colisões:** antes de cada passo, o jogo verifica as árvores, os limites do mapa e os outros personagens,
+  impedindo que alguém atravesse bordas e objetos.
+* **Geração procedural:** `player`, `trees` e `bunnies` são objetos criados em arrays, com posições aleatórias a
+  cada partida.
+
+## 📁 Estrutura do projeto
+
+```
+Jogo-Da-Amizade/
+├── index.html      # Estrutura da página: mapa, urso, radar, contador e mensagem final
+├── style.css       # Estilos, sprites (imagens embutidas em base64) e animações
+├── index.js        # Lógica do jogo: movimento, colisões, radar, abraços e geração do mapa
+└── docs/
+    ├── banner.png
+    └── screenshots/    # Capturas de tela deste README
+```
+
+## 🛠️ Tecnologias
+
+- **HTML5**
+- **CSS3**: posicionamento, sprites e animações
+- **JavaScript (Vanilla)**: lógica do jogo, sem bibliotecas
+
+## 👨‍💻 Autor
+
+Desenvolvido por **[kauaxp77](https://github.com/kauaxp77)** como projeto de estudo de Design Web e Lógica de
+Programação.
+
+<p align="center">⭐ Se curtiu o projeto, deixe uma estrela!</p>
